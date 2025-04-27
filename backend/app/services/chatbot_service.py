@@ -5,7 +5,7 @@ import json
 import os
 
 # Load your OpenRouter API key from environment or just paste it here (for now hardcode for testing)
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "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"
 
 def generate_chatbot_response(user_message: str) -> str:
     url = "https://openrouter.ai/api/v1/chat/completions"
