@@ -2,20 +2,22 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.routes import chat
 
 app = FastAPI()
 
-# CORS setup: allow frontend to call backend
+# CORS setup
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Later restrict to frontend URL for security
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Basic health check route
+# Include chat route
+app.include_router(chat.router)
+
 @app.get("/")
 async def root():
     return {"message": "Retail Chatbot Backend Running!"}
-  
